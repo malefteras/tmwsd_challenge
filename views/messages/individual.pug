@@ -1,0 +1,12 @@
+extends ../layout.pug
+
+block content
+  div.container.bg-light.flex-column.h-100.w-100.d-flex
+    div.d-flex.flex-row.pt-3.align-items-start.justify-items-center
+        div.col-2.mx-3.flex-column.d-flex
+            a.btn.btn-primary(href="/") Back
+        div.col-8.mx-3.flex-column.d-flex
+            div.card.w-100.text-center.lift
+                div.card-header.bg-primary.text-light The Message (You only see this once!)
+                div.card-body.flex-column
+                    p #{message}

@@ -1,9 +1,9 @@
-const express = require('express')
+import express from 'express';
+import { router } from  './routes/messages.js';
 const app = express()
 const port = 3000
 
-const messagesRoute = require('./routes/messages')
-app.use('/', messagesRoute)
+app.use('/', router )
 app.set('view engine', 'pug')
 
 app.listen(port, () => {

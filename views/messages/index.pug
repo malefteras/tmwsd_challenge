@@ -1,1 +1,24 @@
-h1 TMWSD is #{adjective}!
+extends ../layout.pug
+
+block content
+  div.container.bg-light.flex-column.h-100.w-100
+    div.flex-row.pt-3
+        div.col-8.mx-auto.flex-column
+            div.card.w-100.text-center.lift
+                div.card-header.bg-primary.text-light Create a Message
+                div.card-body.flex-column
+                form(role='form', method='POST', action='/message').w-100
+                    div.form-group.justify-items-center.w-100.px-3
+                        textarea#messageTextArea.form-control(rows='3', placeholder="Type your message here...", name="message")
+                        div.justify-content-end.w-100.d-flex.pt-2
+                            button.btn.btn-primary Send
+
+
+    div.flex-row.pt-3
+        div.col-8.mx-auto.flex-column
+            div.card.w-100.text-center.lift
+                div.card-header.bg-primary.text-light Messages
+                div.card-body.flex-column
+                    div.list-group.list-group-flush
+                        each val in ids
+                            a.list-group-item.list-group-item-action(href='/message/' + val["id"])= val["time"]
